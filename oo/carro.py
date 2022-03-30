@@ -126,8 +126,10 @@ if __name__ == '__main__':
     direcao.girar_a_esquerda()
     print(direcao.direcao)
 
-    carro = Carro()
+    carro = Carro(motor, direcao)
     print(carro.calcular_velocidade())
+    carro.acelerar()
+    carro.acelerar()
     carro.acelerar()
     print(carro.calcular_velocidade())
 
