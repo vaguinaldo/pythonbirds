@@ -10,10 +10,24 @@ class Pessoa:
     def cumprimentar(self):
         return f'Ola{id(self)}'
 
+    #Decorators
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    #Decorators
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'olhos {cls.olhos} '
+
 
 if __name__ == '__main__':
     vagui = Pessoa(nome='vaguinaldo')
-    joao = Pessoa(vagui, nome='joao')
+    pedro = Pessoa(nome='pedro')
+    maria = Pessoa(nome='maria')
+    acir = Pessoa(nome='acir')
+
+    joao = Pessoa(vagui,pedro,maria,acir, nome='joao')
     print(vagui.idade)
     print(joao.filhos)
     print(joao.olhos)
@@ -26,3 +40,6 @@ if __name__ == '__main__':
 
     print(vagui.__dict__)
     print(id(vagui.olhos))
+    print(Pessoa.metodo_estatico(), vagui.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), vagui.nome_e_atributos_de_classe())
+
