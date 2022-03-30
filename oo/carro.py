@@ -70,7 +70,7 @@ class Direcao:
 
 
 class Carro():
-    def __init__(self, motor=Motor(), direcao=Direcao()):
+    def __init__(self, motor, direcao):
         self.direcao = direcao
         self.motor = motor
 
@@ -89,7 +89,7 @@ class Carro():
         return self.motor.acelerar()
 
     def calcular_velocidade(self):
-        return self.motor
+        return self.motor.velocidade
 
 if __name__ == '__main__':
     #teste motor
@@ -128,10 +128,20 @@ if __name__ == '__main__':
 
     carro = Carro(motor, direcao)
     print(carro.calcular_velocidade())
-    carro.acelerar()
-    carro.acelerar()
+
     carro.acelerar()
     print(carro.calcular_velocidade())
+
+    carro.acelerar()
+    print(carro.calcular_velocidade())
+
+    carro.frear()
+    print(carro.calcular_velocidade())
+
+    print(carro.calcular_direcao())
+    print(carro.girar_a_esquerda())
+   # print(carro.calcular_direcao())
+
 
 
 
