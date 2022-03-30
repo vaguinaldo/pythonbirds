@@ -1,6 +1,7 @@
 class Pessoa:
-    def __init__(self, nome=None, idade=29):
+    def __init__(self, *filhos, nome=None, idade=29):
         #atalho alt + enter cria os atributos
+        self.filhos = list(filhos)
         self.idade = idade
         self.nome = nome
 
@@ -9,10 +10,9 @@ class Pessoa:
 
 
 if __name__ == '__main__':
-    p = Pessoa()
-    print(p.cumprimentar())
-    print(id(p))
-    print(Pessoa.cumprimentar(p))
-    p.nome = 'vaguinaldo'
-    print(p.nome)
-
+    vagui = Pessoa(nome='vaguinaldo')
+    joao = Pessoa(vagui, nome='joao')
+    print(vagui.idade)
+    print(joao.filhos)
+    for filho in joao.filhos:
+        print(filho.nome)
