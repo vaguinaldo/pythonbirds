@@ -8,7 +8,7 @@ class Pessoa:
         self.nome = nome
 
     def cumprimentar(self):
-        return f'Ola{id(self)}'
+        return f'Ola meu nome é {self.nome}'
 
     #Decorators
     @staticmethod
@@ -22,7 +22,16 @@ class Pessoa:
 
 
 class Homen(Pessoa):
-    pass
+    def cumprimentar(self):
+        #cumprimentar_da_class_pai = Pessoa.cumprimentar(self)
+        cumprimentar_da_class_pai = super().cumprimentar()
+        return f'{cumprimentar_da_class_pai}. Aperto de mão'
+
+
+class Mutante(Pessoa):
+    # sobrescrita de atributos
+    olhos = 3
+
 
 
 if __name__ == '__main__':
@@ -31,7 +40,7 @@ if __name__ == '__main__':
     maria = Pessoa(nome='maria')
     acir = Pessoa(nome='acir')
 
-    joao = Homen(vagui,pedro,maria,acir, nome='joao')
+    joao = Mutante(vagui,pedro,maria,acir, nome='joao')
     print(vagui.idade)
     print(joao.filhos)
     print(joao.olhos)
@@ -51,4 +60,9 @@ if __name__ == '__main__':
     print(isinstance(pessoa, Homen))
     print(isinstance(vagui, Pessoa))
     print(isinstance(vagui, Homen))
+    print(vagui.olhos)
+    print(joao.olhos)
+    print(joao.cumprimentar())
+    print(vagui.cumprimentar())
+
 
