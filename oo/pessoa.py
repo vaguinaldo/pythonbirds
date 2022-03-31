@@ -21,13 +21,17 @@ class Pessoa:
         return f'olhos {cls.olhos} '
 
 
+class Homen(Pessoa):
+    pass
+
+
 if __name__ == '__main__':
-    vagui = Pessoa(nome='vaguinaldo')
+    vagui = Homen(nome='vaguinaldo')
     pedro = Pessoa(nome='pedro')
     maria = Pessoa(nome='maria')
     acir = Pessoa(nome='acir')
 
-    joao = Pessoa(vagui,pedro,maria,acir, nome='joao')
+    joao = Homen(vagui,pedro,maria,acir, nome='joao')
     print(vagui.idade)
     print(joao.filhos)
     print(joao.olhos)
@@ -42,4 +46,9 @@ if __name__ == '__main__':
     print(id(vagui.olhos))
     print(Pessoa.metodo_estatico(), vagui.metodo_estatico())
     print(Pessoa.nome_e_atributos_de_classe(), vagui.nome_e_atributos_de_classe())
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homen))
+    print(isinstance(vagui, Pessoa))
+    print(isinstance(vagui, Homen))
 
